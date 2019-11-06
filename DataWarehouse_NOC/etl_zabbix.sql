@@ -76,7 +76,12 @@ select d.*, to_timestamp (d.clock)::timestamp without time zone as data,
 		 when strpos (lower(d.name),'sal') > 0 then 134
 		 when strpos (lower(d.name),'pa') > 0 then 135
 		 when strpos (lower(d.name),'ver') > 0 then 136 
-		 when strpos (lower(d.name), 'nin') > 0 then 137 end as id_unidade
+		 when strpos (lower(d.name), 'nin') > 0 then 137 end as id_unidade,
+    
+    /*estado do ativo*/
+
+    case when strpos (lower(d.value), '1') > 0 then 'down'
+         when strpos (lower(d.value), '0') > 0 then 'up' end as estado_ativo
 		 
 from events d
 	
