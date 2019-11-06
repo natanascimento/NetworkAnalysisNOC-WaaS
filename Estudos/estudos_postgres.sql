@@ -13,6 +13,9 @@ WHERE COD_REF = **codigo**;
 ****RENOMEAR TABELA****
 ALTER TABLE ***tabelpararenomear*** RENAME TO ***novo_nome***;
 
+/*Alterar o tipo da coluna*/
+ALTER TABLE ***tabelparaalterar*** ALTER COLUMN ***colunaparalaterar*** type varchar  /*alterando tipo*/
+
 
 ****CRIANDO UMA NOVA TABELA****
 CREATE TABLE **NOMEDATABELA** (
