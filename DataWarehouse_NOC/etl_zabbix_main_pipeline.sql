@@ -5,7 +5,42 @@ select t.*,
 
     /*ies*/
     case when t.id_unidade = 100 then 1 
-         when t.id_unidade = 106 then 2 end as id_ies
+         when t.id_unidade = 101 then 1
+		 when t.id_unidade = 102 then 1
+		 when t.id_unidade = 103 then 1 
+		 when t.id_unidade = 104 then 1 
+		 when t.id_unidade = 105 then 1 
+		 when t.id_unidade = 106 then 2 
+		 when t.id_unidade = 107 then 2 
+		 when t.id_unidade = 108 then 1 
+		 when t.id_unidade = 109 then 1 
+		 when t.id_unidade = 110 then 1 
+		 when t.id_unidade = 111 then 1 
+		 when t.id_unidade = 112 then 1 
+		 when t.id_unidade = 113 then 1 
+		 when t.id_unidade = 114 then 1 
+		 when t.id_unidade = 115 then 1 
+		 when t.id_unidade = 116 then 1 
+		 when t.id_unidade = 117 then 1 
+		 when t.id_unidade = 118 then 3 
+		 when t.id_unidade = 119 then 3 
+		 when t.id_unidade = 120 then 1 
+		 when t.id_unidade = 121 then 3 
+		 when t.id_unidade = 122 then 1 
+		 when t.id_unidade = 123 then 5 
+		 when t.id_unidade = 124 then 1 
+		 when t.id_unidade = 125 then 1 
+		 when t.id_unidade = 126 then 1 
+		 when t.id_unidade = 127 then 4
+		 when t.id_unidade = 128 then 4 
+		 when t.id_unidade = 129 then 1 
+		 when t.id_unidade = 130 then 1 
+		 when t.id_unidade = 131 then 1 
+		 when t.id_unidade = 132 then 1 
+		 when t.id_unidade = 133 then 1 
+		 when t.id_unidade = 134 then 1 
+		 when t.id_unidade = 135 then 1 
+		 when t.id_unidade = 136 then 2 end as id_ies
 
     from (select *, to_timestamp (clock)::timestamp without time zone as data,
     
@@ -47,7 +82,8 @@ select t.*,
 		 when strpos (lower(name),'sal') > 0 then 134
 		 when strpos (lower(name),'pa') > 0 then 135
 		 when strpos (lower(name),'ver') > 0 then 136 
-		 when strpos (lower(name), 'nin') > 0 then 137 end as id_unidade,
+		 when strpos (lower(name), 'nin') > 0 then 102
+		 when strpos (lower(name), 'nvm') > 0 then 119 end as id_unidade,
 
     /*state*/
     case when value = 1 then 'down'
