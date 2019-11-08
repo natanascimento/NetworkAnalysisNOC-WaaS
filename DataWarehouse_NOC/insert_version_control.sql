@@ -109,3 +109,9 @@ VALUES (2, '2.3', '12/09/2019', 'Modificação e Melhoria na dashboard de Protoc
 
 INSERT INTO controle_versao (id_version, versao, data, mudancas_realizadas)
 VALUES (2, '2.4', '17/09/2019', 'Inclusão da dashboard referente aos Chromebooks');
+
+INSERT INTO public.controle_versao(
+	id_version, versao, data, mudancas_realizadas)
+	VALUES (2.0, 2.7, 01/11/2019, 'Modificação no processo de ETL utilizado Pentaho ');
+
+

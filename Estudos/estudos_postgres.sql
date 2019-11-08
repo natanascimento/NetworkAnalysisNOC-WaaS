@@ -27,3 +27,16 @@ CREATE TABLE **NOMEDATABELA** (
 
 ****EXCLUINDO UMA TABELA****
 DROP TABLE ***nome da tabela***
+
+****COPIADO TABELA****
+create table ***nome da tabela*** as (select * from ***nome da tabela***)
+
+
+/*Querys teste */
+
+/*select * from pg_tables where schemaname = 'teltec_bi'*/
+
+/*create table teltec_bi.ssid as (select * from public.ssid)*/
+
+/*create table teste.teste as (select * from teltec_bi.ssid)*/
+
