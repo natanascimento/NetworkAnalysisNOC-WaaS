@@ -1,42 +1,39 @@
+/*
+    Estudos dirigidos para o uso do SGBD PostgreSQL
+*/
 
-****REMOVER UMA COLUNA NO POSTGRESQL****
-ALTER TABLE ***nomedatabela*** DROP COLUMN ***nomedacoluna***
 
-****RENOMEANDO A COLUNA*****
-ALTER TABLE ***nomedatabela*** RENAME COLUMN ***nomedacoluna*** TO ***novonomedacoluna***
+/*Removendo coluna*/
+ALTER TABLE /*nome da tabela*/ DROP COLUMN /*nome da coluna*/
 
-****ATUALIZANDO VALORES*****
-UPDATE **NOMEDATABELA**
-SET **NOMEDACOLUNA** = 'valor'
-WHERE COD_REF = **codigo**;
+/*Renomeando Coluna*/
+ALTER TABLE /*nome da tabela*/ RENAME COLUMN /*nome da coluna*/ TO /*novo nome da coluna*/
 
-****RENOMEAR TABELA****
-ALTER TABLE ***tabelpararenomear*** RENAME TO ***novo_nome***;
+/*Atualizando valores de uma determinada tabela*/
+UPDATE /*nome da tabela*/
+SET /*nome da coluna*/ = /*valor a ser inserido*/
+WHERE COD_REF = **codigo**; /*ao atualizar um valor, o ideal é que se basei em um código atomico como chaves primarias*/
+
+/*Renomear Tabela*/
+ALTER TABLE /*nome da tabela*/ RENAME TO /*novo nome da tabela*/;
 
 /*Alterar o tipo da coluna*/
-ALTER TABLE ***tabelparaalterar*** ALTER COLUMN ***colunaparalaterar*** type varchar  /*alterando tipo*/
+ALTER TABLE /*nome da tabela*/ ALTER COLUMN /*nome da coluna*/ type /*tipo do dado*/
 
-
-****CRIANDO UMA NOVA TABELA****
-CREATE TABLE **NOMEDATABELA** (
- **NOMEDACOLUNA** integer CONSTRAINT pk_**NOMEDACOLUNA** PRIMARY KEY,
- **NOMEDACOLUNA** varchar(30) NOT NULL, 
- **NOMEDACOLUNA** varchar(40) NOT NULL,
- **NOMEDACOLUNA** date
+/*Criando Tabela*/
+CREATE TABLE /*nome da tabela*/ (
+ /*nome da coluna*/ integer CONSTRAINT pk_/*nome da coluna*/ PRIMARY KEY,
+ /*nome da coluna*/ varchar(30) NOT NULL, 
+ /*nome da coluna*/ varchar(40) NOT NULL,
+ /*nome da coluna*/ date
 );
 
-****EXCLUINDO UMA TABELA****
-DROP TABLE ***nome da tabela***
+/*Excluindo tabela*/
+DROP TABLE /*nome da tabela*/
 
-****COPIADO TABELA****
-create table ***nome da tabela*** as (select * from ***nome da tabela***)
+/*Criando Tabela com base em outra*/
+create table /*nome da tabela*/ as (select * from /*nome da tabela*/)
 
 
-/*Querys teste */
-
-/*select * from pg_tables where schemaname = 'teltec_bi'*/
-
-/*create table teltec_bi.ssid as (select * from public.ssid)*/
-
-/*create table teste.teste as (select * from teltec_bi.ssid)*/
-
+/*Visualizando os schemas presentes no banco Postgresql*/
+select * from pg_tables where schemaname = /*nome no schema*/
