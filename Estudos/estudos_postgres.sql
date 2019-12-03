@@ -36,3 +36,18 @@ create table /*nome da tabela*/ as (select * from /*nome da tabela*/)
 
 /*Visualizando os schemas presentes no banco Postgresql*/
 select * from pg_tables where schemaname = /*nome no schema*/
+
+/*subquery usando distinct (utilizado para etornar apenas valores distintos, dentro de uma coluna onde contem muitos valores duplicados)*/
+select * from /*nome da tabela*/
+where /*nome da coluna*/ = (select distinct /*nome da coluna*/ from /*nome da tabela*/)
+order by /*nome da coluna*/ desc;
+
+/*LIKE para encontrar um determinado valor dentro de uma coluna*/
+select * from /*nome da tabela*/
+where /*nome da coluna*/ like 'valor%'
+order by /*nome da coluna*/ asc;
+
+/**/
+select * 
+from /*nome da tabela*/ inner join /*nome da tabela*/
+on /*nome da coluna*/ = /*nome da coluna*/;
