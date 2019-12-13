@@ -2,6 +2,7 @@
 select t.*,
 
     /*Protocol*/
+        /*Localizando os protocolos das conexões WiFi*/
     case when strpos (lower (t.protocol), '2.4') > 0 then 10
          when strpos (lower (t.protocol), '802.11ac') > 0 then 20
          when strpos (lower (t.protocol), '5') > 0 then 30
@@ -12,6 +13,7 @@ select t.*,
     from (select *,
     
     /*unidade*/
+        /*Analisando as strings dos AP's e apontando as unidades*/
 	case when strpos (lower(ap_name),'far') > 0 then 100
 		 when strpos (lower(ap_name),'far mini') > 0 then 101
 		 when strpos (lower(ap_name),'cen') > 0 then 102
@@ -52,4 +54,37 @@ select t.*,
 		 when strpos (lower(ap_name), 'nin') > 0 then 102
 		 when strpos (lower(ap_name), 'nvm') > 0 then 119 end as id_unidade,
     
+    /*vendor*/
+        /*Android*/
+    case when strpos (lower(endpoint),'android') > 0 then 10
+         when strpos (lower(endpoint),'motorola') > 0 then 10
+         when strpos (lower(endpoint),'samsung') > 0 then 10
+         when strpos (lower(endpoint), 'xiaomi') > 0 then 10
+		 when strpos (lower(endpoint), 'lg') > 0 then 10
+         when strpos (lower(endpoint),'shenzhen') > 0 then 10
+         when strpos (lower(endpoint),'hon') > 0 then 10
+         when strpos (lower(endpoint), 'asus') > 0 then 10 
+         when strpos (lower(endpoint), 'airgo') > 0 then 10
+         when strpos (lower(endpoint), 'nokia') > 0 then 10
+         when strpos (lower(endpoint), 'oneplus') > 0 then 10 
+         when strpos (lower(endpoint), 'blu') > 0 then 10 
+         when strpos (lower(endpoint), 'vivo') > 0 then 10
+         /*Apple*/
+         when strpos (lower(endpoint), 'apple') > 0 then 20
+         when strpos (lower(endpoint), 'iphone') > 0 then 20
+         when strpos (lower(endpoint), 'ipad') > 0 then 20
+         /*Workstation*/
+         when strpos (lower(endpoint), 'os') > 0 then 30
+         when strpos (lower(endpoint), 'workstation') > 0 then 30
+         when strpos (lower(endpoint), 'microsoft') > 0 then 30
+         when strpos (lower(endpoint), 'rasp') > 0 then 30
+         when strpos (lower(endpoint), 'intel') > 0 then 30
+         when strpos (lower(endpoint), 'hp') > 0 then 30
+         /*Outros Dispositivos*/
+         when strpos (lower(endpoint), 'none') > 0 then 40
+         when strpos (lower(endpoint), 'unclassified') > 0 then 40
+         when strpos (lower(endpoint), 'tct') > 0 then 40
+         when strpos (lower(endpoint), 'rivet') > 0 then 40
+         when strpos (lower(endpoint), 'liteon') > 0 then 40 end as id_vendor
+
 		 from teltec_bi.vendor_protocol_temp) t 
