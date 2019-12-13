@@ -85,6 +85,17 @@ select t.*,
          when strpos (lower(endpoint), 'unclassified') > 0 then 40
          when strpos (lower(endpoint), 'tct') > 0 then 40
          when strpos (lower(endpoint), 'rivet') > 0 then 40
-         when strpos (lower(endpoint), 'liteon') > 0 then 40 end as id_vendor
+         when strpos (lower(endpoint), 'liteon') > 0 then 40 end as id_vendor,
+    
+    /*ssid*/
+        /*Localizando SSID*/
+    case when strpos (lower(ssid), 'wifi') > 0 then 200
+         when strpos (lower(ssid), 't8021x') > 0 then 201
+         when strpos (lower(ssid), 'colab') > 0 then 202
+         when strpos (lower(ssid), 'fslf') > 0 then 203
+         when strpos (lower(ssid), 'decos') > 0 then 205
+         when strpos (lower(ssid), 'acad') > 0 then 206
+         when strpos (lower(ssid), 'eventos') > 0 then 207
+         when strpos (lower(ssid), 'innovation') > 0 then 208 end as id_ssid
 
 		 from teltec_bi.vendor_protocol_temp) t 
